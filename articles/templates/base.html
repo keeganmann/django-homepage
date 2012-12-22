@@ -2,138 +2,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>keeganmann.com</title>
   <!--<link rel="shortcut icon" href="favicon.ico?v=1" />-->
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta http-equiv="content-language" content="en-us">
-  <link href="static/style.css?v=2" rel="stylesheet" type="text/css">
+  <link href="/static/style.css?v=3" rel="stylesheet" type="text/css">
   <!--<link href="narrow.css" rel="stylesheet" media="screen and (max-width: 400px)">
   <link href="med.css" rel="stylesheet" media="screen and (min-width: 401px)  and (max-width: 950px)">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>-->
   <!--TODO:  Add analytics-->
+
+  <title>Keegan Mann - {% block title %}Welcome{% endblock %}</title>
+  {% block extra-head %}{% endblock %}
 </head>
 <body>
 
 <div class="logo">
-  <a href="http://keeganmann.com/">
-<h1>keeganmann.com</h1>
-  </a>
+  <a href="/"><h1>keeganmann.com</h1></a>
+  <div class=navspacer></div>
+  <a class=nav href="/">HOME</a>
+  <!--<a class=nav href="/about/">ABOUT</a>-->
+  <a class=nav href="http://keeganmann.wordpress.com">BLOG</a>
+  <!--<a class=nav href="http://blog.keeganmann.com">ARCHIVE</a>-->
+  <a class=nav href="https://github.com/keeganmann">GITHUB</a>
+  <a class=nav href="/static/resume.pdf">RESUME</a>
 </div>
 <div class="picture">
-  <div class="subtext" id="subtitle" style="text-align:center;">
-<p>
-  I’m currently a student at UC Berkeley, and I love learning about Electronics, Physics, and Computers.  
-  Click the links below for more.
-</p>
-  </div>
-</div>
-<!--<div class=banner>WARNING: Planned Outage Friday May 11, 2012</div>-->
-<div class=content>
-<a href="http://blog.keeganmann.com">
-<div class="entry" id="blog">
-  <div class=subtext>
-    <h1>Wordpress Blog</h1>
-    <p>A wordpress blog with some of my past projects and interests.</p>
-  </div>
-</div>
-</a>
-<a href="https://github.com/keeganmann">
-<div class="entry" id="github" style="background-color:#fff;">
-  <p style="padding:5px;margin:0px;color:#aaa;font-size:12px;font-weight:bold;">
-    Note: many of my projects are still in subversion repositories (I hope to get them up here soon).
-  </p>
-  <div class=subtext>
-    <h1>GitHub Page</h1>
-    <p>Some cool software projects.</p>
-  </div>
-</div>
-</a>
-<a href="http://maharbizgroup.wordpress.com/">
-<div class="entry" id="mahar" style="background-color:#fff;">
-  <div class=subtext>
-    <h1>Maharbiz Group</h1>
-    <p>Awesome research group I'm a part of at UC Berkeley.</p>
-  </div>
-</div>
-</a>
-<a href="/static/resume.pdf">
-<div class="entry" id="resume" style="background-color:#fff;">
-  <div class=subtext>
-    <h1>My Resume</h1>
-    <p>(PDF)</p>
-  </div>
-</div>
-</a>
-  <!--<a href="http://frcstats.keeganmann.com">
-<div class="entry" id=frcstats>
-  <div class=subtext>
-    <h1>FRC Stats Inspector Web App</h1>
-    <p>Enables FIRST Robotics Competition teams to record stats.</p>
-  </div>
-</div>
-  </a>-->
-  <!--<a href="svnrepos.html">
-<div class="entry" id=svn>
-  <div class=subtext>
-    <h1>Subversion Repositories</h1>
-    <p>Several older projects are still here on subversion.</p>
-  </div>
-</div>
-  </a>-->
-  <div class="entry" id="links">
-<h1>More Links:</h1>
-<ul>
-  <!--<li>
-    <a href="http://frcstatsold.keeganmann.com">
-      Old Version of FRC Stats Webapp
-    </a>
+  <!--<div class="subtext" id="subtitle" style="text-align:center;">
     <p>
-      Version in pure php without a framework before the redesign to use django.
+      I’m currently a student at UC Berkeley, and I love learning about Electronics, Physics, and Computers.  
+      Click the links below for more.
     </p>
-  </li>-->
-  <!--<li>
-    <a href="resume.html">
-      My Resume
-    </a>
-    <p>
-      Resume last updated 8-29-2012.
-    </p>
-  </li>-->
-  <li>
-    <a href="http://kiigan.wordpress.com/">
-      Japanese Wordpress blog
-    </a>
-    <p>
-      An effort to retain some Japanese I've learned.
-    </p>
-  </li>
-  <li>
-    <a href="http://www.linkedin.com/pub/keegan-mann/39/64a/776">
-      LinkedIn Profile
-    </a>
-  </li>
-</ul>
+  </div>-->
+</div>
+
+<div class=outer>
+<div class=contain>
+  <div class=right>
+    <!--<div class=right-inner>
+      <div class=page-pad>
+        {% block sidebar %}
+          {% block recent_articles %}
+            <h2>Recent Articles</h2>
+            {% get_articles 10 as recent %}
+            {% for article in recent %}
+            {% if forloop.first %}<ul>{% endif %}
+              <li><a href="{{ article.get_absolute_url }}" title="Read this article">{{ article.title }}</a></li>
+            {% if forloop.last %}</ul>{% endif %}
+            {% endfor %}
+          {% endblock %}
+
+          {% block article_tags %}
+          <li>
+            <h2>Tag Cloud</h2>
+            {% tag_cloud %}
+          </li>
+          {% endblock %}
+        {% endblock %}
+      </div>
+    </div>-->
+
+    <div class=right-inner>
+      <div class=page-pad>
+        <p><em>
+          Hi There!<br/>
+          My name is Keegan Mann, and I love working with and learning about 
+          Electronics, Physics, and Computers.  I’m currently a second year 
+          EECS(Electrical Engineering and Computer Science) major at 
+          UC Berkeley.  I post on my blog about various projects and 
+          activities I’ve been involved in, but lately I haven’t had much 
+          time.<br/>
+        </em></p>
+      </div>
+    </div>
+    <div class=right-inner>
+      <div class=page-pad>
+        <h2>More Links:</h2>
+        <ul>
+          <li>
+            <a href="http://kiigan.wordpress.com/">
+              Japanese Wordpress blog
+            </a>
+            <p style="margin-left:10px;font-size: 12px;margin-top:0px;">
+              An effort to retain some Japanese I've learned.
+            </p>
+          </li>
+          <li>
+            <a href="http://www.linkedin.com/pub/keegan-mann/39/64a/776">
+              LinkedIn Profile
+            </a>
+            <p style="margin-left:10px;font-size: 12px;margin-top:0px;">
+              I don't pay attention to this much, but I thought I might as well put it here.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
+  <div class=content>
+    {% block content-container %}
+    <div class=page>
+      <div class=page-inner>
+        <div class=page-pad>
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+  </div>
+  <div class=floating-pad></div>
 </div>
-<div id="adds">
-  <script type="text/javascript">
-<!--
-  google_ad_client = "ca-pub-8199785433206337";
-  /* Keeganmann */
-  google_ad_slot = "8832057085";
-  google_ad_width = 728;
-  google_ad_height = 90;
-  //-->
-  </script>
-  <script type="text/javascript"
-    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-  </script>
 </div>
-<div id="bottombar">
+
+<div id="footer">
+  {% block footer %}
   <p>
-Copyright 2012<br/>
-<a href="http://keeganmann.com">keeganmann.com</a>
+    Copyright &copy; {% now "Y" %} 
+    <a href="http://keeganmann.com">keeganmann.com</a>. All rights reserved.
   </p>
+  {% endblock %}
 </div>
 
 </body>

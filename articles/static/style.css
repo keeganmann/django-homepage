@@ -1,45 +1,68 @@
+body, div, h1{
+	margin: 0px;
+	padding: 0px;
+}
+
 body{
 	background-image: url('http://i.imgur.com/FWgaR.png');
-	padding: 0px;
-	margin: 0px;
     font: normal 15px Helvetica, arial, sans-serif;
 }
 
-div{
-	margin: 0px;
-	padding: 0px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
+a{
+	text-decoration: none;
+	color: #0000ff;
 }
+a:hover{
+	color: #ff0000;
+}
+
+/*** NAVBAR ***/
 div.logo{
 	background-image: url('http://i.imgur.com/iiiYh.png');/*denim*/
 	text-align: center;
-	height: auto;
-	padding: 10px 0px;
+	height: 45px;
+	color: #bbbfa5;
+}
+a.nav, div.navspacer, div.logo h1{
+	color: #bbbfa5;
+	font-size: 14px;
+	/*border-right:1px solid #888;*/
+	height: 30px;
+	width: 100px;
+	float: left;
+	padding-top: 15px;
+	z-index: 1;
+}
+div.logo a:hover{
+	color:#fff;
+	background: #222;
+}
+div.navspacer{
+	width:50px;
 }
 div.logo h1{
-	font-size: 35px;
-	color: #bbbfa5;
-	padding: 0px;
-	margin: 0px;
+	font-size: 20px;
+	padding: 10px 40px;
     text-shadow: 0px 0px 20px #000;
     -moz-text-shadow: 0px 0px 20px #000;
     -webkit-text-shadow: 0px 0px 20px #000;
 }
+
+/*** MAIN PICTURE ***/
 div.picture{
 	background: url('http://i.imgur.com/l5joE.jpg') center center repeat-x;
 	background-size: cover;
-	height: 200px;
+	height: 150px;
 	border-top: 10px solid #222222;
 	border-bottom: 10px solid #445588;
 	position:relative;
+	z-index: -1;
 }
 div.subtext{
 	position: absolute;
 	bottom: 0px;
 	height: auto;
-	margin: 0px;
+	width: 100%;
 	background: #444444;
 	color: #bbbfa5;
 	opacity:0.7;
@@ -54,55 +77,133 @@ div.subtext p{
 }
 div.subtext h1{
 	padding: 0px 30px;
-	margin: 0px;
 	margin-top: 10px;
 	font-size: 15px;
-	line-height: 22px;
+	line-height: 24px;
 	color: #ffffff;
 }
-div.banner{
-    background-color: #f80;
-    margin-top: 0px;
-    width: 100%;
-    text-align: center;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    text-weight: bold;
-    font-size: 12px;
-    color: #fff;
-background: #ff1a00; /* Old browsers */
-background: -moz-linear-gradient(top,  #ff1a00 0%, #930000 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff1a00), color-stop(100%,#930000)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  #ff1a00 0%,#930000 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  #ff1a00 0%,#930000 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  #ff1a00 0%,#930000 100%); /* IE10+ */
-background: linear-gradient(top,  #ff1a00 0%,#930000 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff1a00', endColorstr='#930000',GradientType=0 ); /* IE6-9 */
+
+/*** CONTENT AREA ***/
+div.outer{
+    /*background: #0f0;/**/
+	width: auto;
+	padding: 40px;
+}
+div.contain{
+    /*background: #f00;/**/
+	width: 100%;
+	max-width: 1200px;
+	margin: 0px auto;
+	min-width:600px;
 }
 div.content{
-	width: 925px;
-	margin-left: auto;
-	margin-right: auto;
+	/*background: #f8f;/**/
+	width: 70%;
+	float:right;
+	padding:0px;
+	margin:0px;
 }
-div.column{
-	width: 50%;
+div.right{
+	/*background:#fff;/**/
+	color:#444;
+	width:30%;
+	float:right;
+}
+div.right-inner{
+	background:#fff;
+	float:left;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+h2{
+	margin-top:0px;
+	font-size: 20px;
+}
+div.right ul{
+	list-style-type: none;
+	padding-left: 20px;
+}
+div.page-container{
+	/*background: #888;/**/
+	width:100%;
+}
+div.page{
+	/*background: #fff;/**/
+	width: auto;
+	float: none;
+	padding-right:20px;
+}
+div.page-inner{
+	background: #fff;/**/
+	float: none;
+	min-height: 500px;
+}
+div.page-pad{
+	padding:30px;
+}
+
+div.floating-pad{
+	float:right;
+	height:40px;
+	width: 100%;
+}
+
+/*** FOOTER ***/
+
+#footer{
+	padding: 5px 0px;
+	width: 100%;
 	float: left;
+	height: auto;
+	text-align: center;
+	border-top: 0px solid #888;
 }
-div.entry{
+#footer p{
+	color: #777;
+	font-size: 10px;
+	line-height: 13px;
+}
+#footer a{
+	color: #66f;
+}
+#footer a:hover{
+	color: #f66;
+}
+
+/*** ONLY ON HOME PAGE ***/
+
+div.padder{
+	float:left;
+	background:#f00;
+}
+
+div.entry, div.page-inner, div.right-inner{
     box-shadow: 2px 2px 3px #aaa;
     -moz-box-shadow: 2px 2px 3px #aaa;
     -webkit-box-shadow: 2px 2px 3px #aaa;
-    background: #ffffff;
     border: 1px solid #ccc;
-    height: 230px;
-	margin: 30px;
-	width: 400px;
+}
+div.entrycontainer{
+	width: 50%;
+	margin: 0px 0px;
+	padding: 0px 0px;
+}
+div.entry{
+	width: 100%;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	padding: 0px 0px;
+    background: #ffffff;
+    height: 200px;
     position: relative;
-    float:left;
+    float: right;
 }
 div.entry .subtext{
 	opacity:0.8;
 	filter:alpha(opacity=80);
+	height:100%;
+	width: 30%;
 }
 div.entry h1{
 	
@@ -134,9 +235,11 @@ div.entry:hover .subtext{
 }
 #links{
 	background-image: url('http://i.imgur.com/iiiYh.png');/*denim*/
-	/*background-size: cover;*/
-	width: 865px;
 	height: auto;
+	/*padding: 20px 0px;
+	margin: 10px 0px;*/
+	width: 500px;
+	float: none;
 }
 #links h1{
 	padding-left: 20px;
@@ -169,36 +272,10 @@ div.entry:hover .subtext{
 	padding-right: 20px;
 }
 
-a{
-	text-decoration: none;
-	color: #0000ff;
-}
-a:hover{
-	color: #ff0000;
-}
-
-#bottombar{
-	padding: 5px 0px;
-	clear: both;
-	background-image: url('http://i.imgur.com/iiiYh.png');/*denim*/
-	height: auto;
-	text-align: center;
-}
 #adds{
     margin-top: 70px;
     margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-}
-#bottombar p{
-	color: #aaa;
-	font-size: 10px;
-	line-height: 13px;
-}
-#bottombar a{
-	color: #88f;
-}
-#bottombar a:hover{
-	color: #f88;
 }

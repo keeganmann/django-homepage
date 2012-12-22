@@ -1,0 +1,43 @@
+{% extends 'articles/base.html' %}
+{% block content-container %}
+    <a href="http://keeganmann.wordpress.com">
+    <div class="entry" id="blog">
+      <div class=subtext>
+        <h1>Wordpress Blog</h1>
+        <p>A wordpress blog with some of my past projects and interests.</p>
+      </div>
+    </div>
+    </a>
+    <a href="https://github.com/keeganmann">
+    <div class="entry" id="github" style="background-color:#fff;">
+      <p style="padding:5px;margin:0px;margin-left:30%;color:#888;font-size:12px;font-weight:bold;">
+        Note: many of my projects are still in subversion repositories, but I hope to get them up here soon.
+      </p>
+      <div class=subtext>
+        <h1>GitHub Page</h1>
+        <p>Some cool software projects including:</p>
+        <ul>
+          <li>Project 1</li>
+          <li>Project 2</li>
+          <li>Project 3</li>
+        </ul>
+      </div>
+    </div>
+    </a>
+    <a href="http://maharbizgroup.wordpress.com/">
+    <div class="entry" id="mahar" style="background-color:#fff;">
+      <div class=subtext>
+        <h1>Maharbiz Group</h1>
+        <p>Research group at UC Berkeley of which I'm a member.</p>
+      </div>
+    </div>
+    </a>
+    <a href="/static/resume.pdf">
+    <div class="entry" id="resume" style="background-color:#fff;">
+      <div class=subtext>
+        <h1>My Resume</h1>
+        <p>(PDF)</p>
+      </div>
+    </div>
+    </a>
+{% endblock %}

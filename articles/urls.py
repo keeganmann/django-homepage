@@ -17,7 +17,7 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('',
-    url(r'^$', views.display_blog_page, name='articles_archive'),
+    url(r'^blog/$', views.display_blog_page, name='articles_archive'),
     url(r'^page/(?P<page>\d+)/$', views.display_blog_page, name='articles_archive_page'),
 
     url(r'^tag/(?P<tag>.*)/page/(?P<page>\d+)/$', views.display_blog_page, name='articles_display_tag_page'),
