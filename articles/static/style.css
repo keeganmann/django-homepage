@@ -1,0 +1,204 @@
+body{
+	background-image: url('http://i.imgur.com/FWgaR.png');
+	padding: 0px;
+	margin: 0px;
+    font: normal 15px Helvetica, arial, sans-serif;
+}
+
+div{
+	margin: 0px;
+	padding: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+div.logo{
+	background-image: url('http://i.imgur.com/iiiYh.png');/*denim*/
+	text-align: center;
+	height: auto;
+	padding: 10px 0px;
+}
+div.logo h1{
+	font-size: 35px;
+	color: #bbbfa5;
+	padding: 0px;
+	margin: 0px;
+    text-shadow: 0px 0px 20px #000;
+    -moz-text-shadow: 0px 0px 20px #000;
+    -webkit-text-shadow: 0px 0px 20px #000;
+}
+div.picture{
+	background: url('http://i.imgur.com/l5joE.jpg') center center repeat-x;
+	background-size: cover;
+	height: 200px;
+	border-top: 10px solid #222222;
+	border-bottom: 10px solid #445588;
+	position:relative;
+}
+div.subtext{
+	position: absolute;
+	bottom: 0px;
+	height: auto;
+	margin: 0px;
+	background: #444444;
+	color: #bbbfa5;
+	opacity:0.7;
+	filter:alpha(opacity=70);
+	background-image: url('http://i.imgur.com/iiiYh.png');/*denim*/
+}
+div.subtext p{
+	padding: 10px 30px;
+	margin: 0px;
+	font-size: 12px;
+	line-height: 20px;
+}
+div.subtext h1{
+	padding: 0px 30px;
+	margin: 0px;
+	margin-top: 10px;
+	font-size: 15px;
+	line-height: 22px;
+	color: #ffffff;
+}
+div.banner{
+    background-color: #f80;
+    margin-top: 0px;
+    width: 100%;
+    text-align: center;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    text-weight: bold;
+    font-size: 12px;
+    color: #fff;
+background: #ff1a00; /* Old browsers */
+background: -moz-linear-gradient(top,  #ff1a00 0%, #930000 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff1a00), color-stop(100%,#930000)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #ff1a00 0%,#930000 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #ff1a00 0%,#930000 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #ff1a00 0%,#930000 100%); /* IE10+ */
+background: linear-gradient(top,  #ff1a00 0%,#930000 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff1a00', endColorstr='#930000',GradientType=0 ); /* IE6-9 */
+}
+div.content{
+	width: 925px;
+	margin-left: auto;
+	margin-right: auto;
+}
+div.column{
+	width: 50%;
+	float: left;
+}
+div.entry{
+    box-shadow: 2px 2px 3px #aaa;
+    -moz-box-shadow: 2px 2px 3px #aaa;
+    -webkit-box-shadow: 2px 2px 3px #aaa;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    height: 230px;
+	margin: 30px;
+	width: 400px;
+    position: relative;
+    float:left;
+}
+div.entry .subtext{
+	opacity:0.8;
+	filter:alpha(opacity=80);
+}
+div.entry h1{
+	
+}
+div.entry p{
+	padding-top: 0px;
+	color: #ddb;
+}
+div.entry:hover .subtext{
+	opacity:0.9;
+	filter:alpha(opacity=90);
+}
+
+#blog{
+	background-image: url('http://i.imgur.com/cko5L.jpg');
+	background-size: cover;
+}
+#github{
+	background-image: url('http://i.imgur.com/DkILN.png');
+	background-size: cover;
+}
+#mahar{
+	background-image: url('http://i.imgur.com/v597x.jpg');
+	background-size: cover;
+}
+#resume{
+	background-image: url('http://i.imgur.com/nWdW7.png');
+	background-size: cover;
+}
+#links{
+	background-image: url('http://i.imgur.com/iiiYh.png');/*denim*/
+	/*background-size: cover;*/
+	width: 865px;
+	height: auto;
+}
+#links h1{
+	padding-left: 20px;
+	color: #bca;
+	font-size: 25px;
+    text-shadow: 0px 0px 6px #000;
+    -moz-text-shadow: 0px 0px 6px #000;
+    -webkit-text-shadow: 0px 0px 6px #000;
+}
+#links ul{
+	padding-left: 40px;
+	color: #bca;
+	font-size: 15px;
+	list-style-type: none;
+	line-height: 20px;
+}
+#links a{
+	font-weight: bold;
+	color: #8af;
+}
+#links a:hover{
+	color: #fa8;
+}
+#links p{
+	color: #bbb;
+	margin: 0px;
+	padding-top: 0px;
+	padding-left: 40px;
+	padding-bottom: 10px;
+	padding-right: 20px;
+}
+
+a{
+	text-decoration: none;
+	color: #0000ff;
+}
+a:hover{
+	color: #ff0000;
+}
+
+#bottombar{
+	padding: 5px 0px;
+	clear: both;
+	background-image: url('http://i.imgur.com/iiiYh.png');/*denim*/
+	height: auto;
+	text-align: center;
+}
+#adds{
+    margin-top: 70px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+#bottombar p{
+	color: #aaa;
+	font-size: 10px;
+	line-height: 13px;
+}
+#bottombar a{
+	color: #88f;
+}
+#bottombar a:hover{
+	color: #f88;
+}
