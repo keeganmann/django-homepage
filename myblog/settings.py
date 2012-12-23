@@ -173,3 +173,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request",
 )
+
+##### Heroku Stuff #####
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
