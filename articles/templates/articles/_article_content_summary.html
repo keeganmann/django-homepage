@@ -1,12 +1,17 @@
 {% load i18n %}
 {% load i18n humanize %}
 <div id="article-content" class="article">
-    <h2 class="title">{% trans article.title %}</h2>
+    <h2 class="title"><a href="{{ article.get_absolute_url }}" title="{% trans 'Read this article' %}">{% trans article.title %}</a></h2>
     <p class=small-subtext>{% trans 'Posted' %} {{ article.publish_date|naturalday }}</p>
 
-    {{ article.rendered_content|safe }}
+    {{ article.teaser|safe }}
+
     <div class=clear></div>
-    <p class=small-subtext-bottom>
+    <p>
+    <a href="{{ article.get_absolute_url }}" title="{% trans 'Read this article' %}" class=read-more>read more &raquo;</a>
+    </p>
+
+    <p class=small-subtext-bottom style="margin-bottom:0px">
     	By <a href="{% url articles_by_author article.author.username %}" title="{% trans 'Read other articles by this author' %}">{{ article.author.get_name }}</a>. 
     	Posted {% if article.tags.count %}in {% for tag in article.tags.all %}<a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a> {% endfor %}{% else %}with no tags{% endif %}.
     </p>

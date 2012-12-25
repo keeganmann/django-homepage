@@ -20,9 +20,9 @@
   <a href="/"><h1>keeganmann.com</h1></a>
   <div class=navspacer></div>
   <a class=nav href="/">HOME</a>
-  <!--<a class=nav href="/about/">ABOUT</a>-->
-  <a class=nav href="http://keeganmann.wordpress.com">BLOG</a>
-  <!--<a class=nav href="http://blog.keeganmann.com">ARCHIVE</a>-->
+  <a class=nav href="/blog/2009/aboutpage/">ABOUT</a>
+  <a class=nav href="/blog/articles">BLOG</a>
+  <a class=nav href="http://keeganmann.com/blog">ARCHIVE</a>
   <a class=nav href="https://github.com/keeganmann">GITHUB</a>
   <a class=nav href="/static/resume.pdf">RESUME</a>
 </div>
@@ -38,7 +38,7 @@
 <div class=outer>
 <div class=contain>
   <div class=right>
-    <!--<div class=right-inner>
+    <div class=right-inner>
       <div class=page-pad>
         {% block sidebar %}
           {% block recent_articles %}
@@ -52,14 +52,12 @@
           {% endblock %}
 
           {% block article_tags %}
-          <li>
             <h2>Tag Cloud</h2>
             {% tag_cloud %}
-          </li>
           {% endblock %}
         {% endblock %}
       </div>
-    </div>-->
+    </div>
 
     <div class=right-inner>
       <div class=page-pad>
@@ -97,6 +95,7 @@
         </ul>
       </div>
     </div>
+    {% block extra-right %}{% endblock %}
   </div>
   <div class=content>
     {% block content-container %}
@@ -118,7 +117,8 @@
   {% block footer %}
   <p>
     Copyright &copy; {% now "Y" %} 
-    <a href="http://keeganmann.com">keeganmann.com</a>. All rights reserved.
+    <a href="http://keeganmann.com">keeganmann.com</a>. All rights reserved.<br/>
+    <span style="font-size:8px"><a href="http://www.codecogs.com/latex/eqneditor.php">Codecogs equation editor</a> used for latex rendering.  </span>
   </p>
   {% endblock %}
 </div>

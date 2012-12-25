@@ -69,6 +69,27 @@ def display_blog_page(request, tag=None, username=None, year=None, month=None, p
 
     return response
 
+def display_article_summaries(request, page=1):
+    """
+    """
+    context = {'request': request}
+    articles = Article.objects.live(user=request.user)
+    template = 'articles/article_list_summary.html'
+
+    paginator = Paginator(articles, ARTICLE_PAGINATION,
+                          orphans=int(ARTICLE_PAGINATION / 4))
+    try:
+        page = paginator.page(page)
+    except EmptyPage:
+        raise Http404
+
+    context.update({'paginator': paginator,
+                    'page_obj': page})
+    variables = RequestContext(request, context)
+    response = render_to_response(template, variables)
+
+    return response
+
 def display_article(request, year, slug, template='articles/article_detail.html'):
     """Displays a single article."""
 

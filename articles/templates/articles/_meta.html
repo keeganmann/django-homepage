@@ -1,6 +1,8 @@
 {% load i18n humanize %}
 
+<div class="clear"></div>
 <div id="article-meta">
+
   <h4>Meta</h4>
 
   <p><strong>{% trans 'Published' %}</strong>: {{ article.publish_date|naturalday }}</p>
@@ -10,6 +12,7 @@
   <p><strong>{% trans 'Comments' %}</strong>: <a href="#disqus_thread">&nbsp;</a></p>
 
   <p><strong>{% trans 'Word Count' %}</strong>: {{ article.word_count|intcomma }}</p>
+
 
   {% if article.get_next_article %}
   <p>
@@ -76,6 +79,7 @@
     <li><a href="{{ url }}" title="{{ title }}">{{ title|safe|truncatewords:10 }}</a></li>
   {% if forloop.last %}</ol>{% endif %}
   {% endfor %}
+
 </div>
 <div class="clear"></div>
 

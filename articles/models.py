@@ -284,7 +284,8 @@ class Article(models.Model):
             # make sure we have a slug first
             if not len(self.slug.strip()):
                 self.slug = slugify(self.title)
-
+            if len(self.slug) > Article._meta.get_field('slug').max_length:
+                self.slug = self.slug[0:Article._meta.get_field('slug').max_length]
             self.slug = self.get_unique_slug(self.slug, using)
             return True
 
@@ -309,12 +310,7 @@ class Article(models.Model):
 
         Returns True if an additional save is required, False otherwise.
         """
-
-        if len(self.description.strip()) == 0:
-            self.description = self.teaser
-            return True
-
-        return False
+        self.description = self.generate_teaser()
 
     @logtime
     @once_per_instance
@@ -452,6 +448,12 @@ class Article(models.Model):
     def get_absolute_url(self):
         return ('articles_display_article', (self.publish_date.year, self.slug))
 
+    def generate_teaser(self):
+        if self.rendered_content.find("<!--more-->") >= 0:
+            return self.rendered_content[:self.rendered_content.find("<!--more-->")]
+        else:
+            return truncate_html_words(self.rendered_content, WORD_LIMIT)
+
     def _get_teaser(self):
         """
         Retrieve some part of the article or the article's description.
@@ -460,8 +462,7 @@ class Article(models.Model):
             if len(self.description.strip()):
                 self._teaser = self.description
             else:
-                self._teaser = truncate_html_words(self.rendered_content, WORD_LIMIT)
-
+                self._teaser = self.generate_teaser()
         return self._teaser
     teaser = property(_get_teaser)
 

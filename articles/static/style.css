@@ -1,4 +1,6 @@
-body, div, h1{
+/*** GENERAL ***/
+
+body, div, h1, h2{
 	margin: 0px;
 	padding: 0px;
 }
@@ -10,10 +12,17 @@ body{
 
 a{
 	text-decoration: none;
-	color: #0000ff;
+	color: #00b;
 }
 a:hover{
-	color: #ff0000;
+	color: #f00;
+}
+
+div.entry, div.page-inner, div.right-inner{
+    box-shadow: 2px 2px 3px #aaa;
+    -moz-box-shadow: 2px 2px 3px #aaa;
+    -webkit-box-shadow: 2px 2px 3px #aaa;
+    border: 1px solid #ccc;
 }
 
 /*** NAVBAR ***/
@@ -58,41 +67,16 @@ div.picture{
 	position:relative;
 	z-index: -1;
 }
-div.subtext{
-	position: absolute;
-	bottom: 0px;
-	height: auto;
-	width: 100%;
-	background: #444444;
-	color: #bbbfa5;
-	opacity:0.7;
-	filter:alpha(opacity=70);
-	background-image: url('http://i.imgur.com/iiiYh.png');/*denim*/
-}
-div.subtext p{
-	padding: 10px 30px;
-	margin: 0px;
-	font-size: 12px;
-	line-height: 20px;
-}
-div.subtext h1{
-	padding: 0px 30px;
-	margin-top: 10px;
-	font-size: 15px;
-	line-height: 24px;
-	color: #ffffff;
-}
 
 /*** CONTENT AREA ***/
 div.outer{
     /*background: #0f0;/**/
 	width: auto;
-	padding: 40px;
+	padding: 20px;
 }
 div.contain{
     /*background: #f00;/**/
 	width: 100%;
-	max-width: 1200px;
 	margin: 0px auto;
 	min-width:600px;
 }
@@ -115,14 +99,12 @@ div.right-inner{
 	margin-bottom: 20px;
 	width: 100%;
 }
-
-h2{
-	margin-top:0px;
-	font-size: 20px;
-}
 div.right ul{
 	list-style-type: none;
 	padding-left: 20px;
+}
+div.right li{
+	margin-top: 5px;
 }
 div.page-container{
 	/*background: #888;/**/
@@ -137,7 +119,6 @@ div.page{
 div.page-inner{
 	background: #fff;/**/
 	float: none;
-	min-height: 500px;
 }
 div.page-pad{
 	padding:30px;
@@ -171,6 +152,183 @@ div.floating-pad{
 	color: #f66;
 }
 
+/*** BLOG ***/
+div.clear{
+	/*background:#f00;/**/
+	height: 0px;
+	width: 100%;
+	/*border-top: 1px solid #ccc;*/
+	margin-top: 0px;
+	clear: both;
+}
+p.small-subtext, p.small-subtext-bottom, div.quiet{
+	margin: 3px 0px 30px 0px;
+	padding: 0px;
+	font-size: 12px;
+	color: #888;
+}
+p.small-subtext-bottom{
+	margin: 30px 0px 30px 0px;
+}
+p.small-subtext a, p.small-subtext-bottom a, div.quiet a{
+	color:#aaa;
+	text-decoration: underline;
+}
+p.small-subtext a:hover, p.small-subtext-bottom a:hover{
+	color:#aaa;
+	text-decoration: none;
+}
+div.page h2.title, div.page h2.title a, div.right h2{
+	margin:0;padding:0;
+	font-size: 20px;
+	color: #000;
+}
+div.page h2.title a:hover{
+	color: #f00;
+}
+ul.pagination-pages{
+	margin:0;
+	padding:0;
+	width:100%;
+	height:30px;
+}
+ul.pagination-pages li{
+	background:#fff;
+	float:left;
+	display:block;
+	margin: 0px;
+	padding: 5px 10px;
+}
+a.current-page{
+	font-weight: bold;
+	color:#000;
+}
+a.read-more{
+	text-weight:bold;
+	padding: 3px 10px;
+}
+
+/*** ARTICLE BODY ***/
+div.article h1{
+	font-size: 26px;
+	margin-top:26px;
+	margin-bottom:10px;
+	color: #555;
+}
+div.article h2{
+	font-size: 20px;
+	margin-top:20px;
+	margin-bottom:10px;
+	color: #555;
+}
+div.article p{
+	clear: none;
+}
+img.alignright{
+	float: right;
+	/*border: 10px solid #eee;*/
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+table{
+}
+td{
+	padding: 10px;
+}
+table.rows{
+	border-collapse: collapse;
+	border: 1px solid #bbb;
+	border-bottom: none;
+}
+table.rows td{
+	padding: 7px 14px;
+	padding-right: 24px;
+	margin:0px;
+	border-bottom: 1px solid #bbb;
+}
+
+div.img-container,
+div.img-container-float-right,
+div.img-container-center{
+	background: #eee;
+	padding:10px;
+}
+div.img-container-float-right{
+	float:right;
+	width:auto;
+	margin-left:20px;
+	margin-bottom:20px;
+	right:0px;
+	clear:both;
+}
+div.img-container p,
+div.img-container-float-right p,
+div.img-container-center p{
+	text-align: center;
+	font-size: 12px;
+	color: #888;
+	padding:0;margin:0;
+	margin-top:5px;
+}
+div.img-container{
+	width:auto;
+}
+div.img-container-center{
+	margin:20px auto;
+}
+blockquote{
+	font-style: italic;
+}
+/*** read more button ***/
+.read-more {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dedede), color-stop(1, #bdbdbd) );
+	background:-moz-linear-gradient( center top, #dedede 5%, #bdbdbd 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dedede', endColorstr='#bdbdbd');
+	background-color:#dedede;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #bfbfbf;
+	display:inline-block;
+	color:#545361;
+	font-size:14px;
+	font-weight:normal;
+	padding:5px 11px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #e6e6e6;
+}.read-more:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bdbdbd), color-stop(1, #dedede) );
+	background:-moz-linear-gradient( center top, #bdbdbd 5%, #dedede 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bdbdbd', endColorstr='#dedede');
+	background-color:#bdbdbd;
+}.read-more:active {
+	position:relative;
+	top:1px;
+}.read-more{
+	float:right;
+}
+
+/*** tag cloud ***/
+.tag-cloud-0{ font-size: 10px; }
+.tag-cloud-1{ font-size: 10px; }
+.tag-cloud-2{ font-size: 12px; }
+.tag-cloud-3{ font-size: 14px; }
+.tag-cloud-4{ font-size: 16px; }
+.tag-cloud-5{ font-size: 18px; }
+.tag-cloud-6{ font-size: 20px; }
+.tag-cloud-7{ font-size: 22px; }
+.tag-cloud-0,
+.tag-cloud-1,
+.tag-cloud-2,
+.tag-cloud-3,
+.tag-cloud-4,
+.tag-cloud-5,
+.tag-cloud-6,
+.tag-cloud-7{ color:#888; }
+
 /*** ONLY ON HOME PAGE ***/
 
 div.padder{
@@ -178,35 +336,16 @@ div.padder{
 	background:#f00;
 }
 
-div.entry, div.page-inner, div.right-inner{
-    box-shadow: 2px 2px 3px #aaa;
-    -moz-box-shadow: 2px 2px 3px #aaa;
-    -webkit-box-shadow: 2px 2px 3px #aaa;
-    border: 1px solid #ccc;
-}
-div.entrycontainer{
-	width: 50%;
-	margin: 0px 0px;
-	padding: 0px 0px;
-}
 div.entry{
 	width: 100%;
 	margin-bottom: 20px;
-	margin-right: 20px;
+	margin-right: 0px;
 	padding: 0px 0px;
     background: #ffffff;
     height: 200px;
     position: relative;
     float: right;
-}
-div.entry .subtext{
-	opacity:0.8;
-	filter:alpha(opacity=80);
-	height:100%;
-	width: 30%;
-}
-div.entry h1{
-	
+	background-size: cover;
 }
 div.entry p{
 	padding-top: 0px;
@@ -216,66 +355,55 @@ div.entry:hover .subtext{
 	opacity:0.9;
 	filter:alpha(opacity=90);
 }
-
-#blog{
-	background-image: url('http://i.imgur.com/cko5L.jpg');
-	background-size: cover;
+div.entry ul{
+	margin-top: 0px;
 }
-#github{
-	background-image: url('http://i.imgur.com/DkILN.png');
-	background-size: cover;
+div.entry li{
+	margin-top: 3px;
 }
-#mahar{
-	background-image: url('http://i.imgur.com/v597x.jpg');
-	background-size: cover;
+div.entry li p{
+	margin: 3px 5px;
+	margin-bottom: 5px;
+	padding: 0px;
+	line-height:100%;
 }
-#resume{
-	background-image: url('http://i.imgur.com/nWdW7.png');
-	background-size: cover;
+div.entry a{
+	color: #ff8;
 }
-#links{
+div.entry a:hover{
+	color: #fff;
+}
+div.entry h1 a{
+	color: #fff;
+}
+div.entry h1 a:hover{
+	color: #ff8;
+}
+div.subtext{
+	position: absolute;
+	bottom: 0px;
+	height:100%;
+	width: 30%;
+	min-width:180px;
 	background-image: url('http://i.imgur.com/iiiYh.png');/*denim*/
-	height: auto;
-	/*padding: 20px 0px;
-	margin: 10px 0px;*/
-	width: 500px;
-	float: none;
+	color: #bbbfa5;
+	opacity:0.8;
+	filter:alpha(opacity=80);
 }
-#links h1{
-	padding-left: 20px;
-	color: #bca;
-	font-size: 25px;
-    text-shadow: 0px 0px 6px #000;
-    -moz-text-shadow: 0px 0px 6px #000;
-    -webkit-text-shadow: 0px 0px 6px #000;
-}
-#links ul{
-	padding-left: 40px;
-	color: #bca;
-	font-size: 15px;
-	list-style-type: none;
+div.subtext p{
+	padding: 10px 30px;
+	margin: 0px;
+	font-size: 12px;
 	line-height: 20px;
 }
-#links a{
-	font-weight: bold;
-	color: #8af;
+div.subtext h1{
+	padding: 0px 30px;
+	margin-top: 10px;
+	font-size: 15px;
+	line-height: 24px;
+	color: #ffffff;
 }
-#links a:hover{
-	color: #fa8;
-}
-#links p{
-	color: #bbb;
-	margin: 0px;
-	padding-top: 0px;
-	padding-left: 40px;
-	padding-bottom: 10px;
-	padding-right: 20px;
-}
-
-#adds{
-    margin-top: 70px;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
+#blog   { background-image: url('http://i.imgur.com/cko5L.jpg'); }
+#github { background-image: url('http://i.imgur.com/DkILN.png'); }
+#mahar  { background-image: url('http://i.imgur.com/v597x.jpg'); }
+#resume { background-image: url('http://i.imgur.com/nWdW7.png'); }

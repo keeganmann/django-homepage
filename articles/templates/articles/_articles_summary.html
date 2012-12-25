@@ -1,0 +1,11 @@
+{% load i18n %}
+{% load i18n humanize %}
+{% if forloop.first %}{% endif %}
+<div class=page style="margin-bottom:20px">
+  <div class=page-inner>
+    <div class=page-pad>
+      {% include 'articles/_article_content_summary.html' %}
+    </div>
+  </div>
+</div>
+{% if forloop.last %}{% endif %}

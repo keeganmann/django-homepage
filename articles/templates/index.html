@@ -1,5 +1,6 @@
 {% extends 'articles/base.html' %}
 {% block content-container %}
+  <div class=page>
     <a href="http://keeganmann.wordpress.com">
     <div class="entry" id="blog">
       <div class=subtext>
@@ -10,16 +11,17 @@
     </a>
     <a href="https://github.com/keeganmann">
     <div class="entry" id="github" style="background-color:#fff;">
-      <p style="padding:5px;margin:0px;margin-left:30%;color:#888;font-size:12px;font-weight:bold;">
+      <p style="padding:5px;margin:0px;margin-left:30%;color:#888;font-size:12px;font-weight:bold;height:100%;">
         Note: many of my projects are still in subversion repositories, but I hope to get them up here soon.
       </p>
       <div class=subtext>
-        <h1>GitHub Page</h1>
-        <p>Some cool software projects including:</p>
+        <h1><a href="https://github.com/keeganmann">GitHub Page</a></h1>
+        <!--<p>Some cool software projects including:</p>-->
         <ul>
-          <li>Project 1</li>
-          <li>Project 2</li>
-          <li>Project 3</li>
+          <li><a href="https://github.com/keeganmann/django-homepage">django-homepage</a><p>Repository for this website.</p></li>
+          <li><a href="https://github.com/keeganmann/PlatformPanda">PlatformPanda</a><p>An iOS platformer game</p></li>
+          <li><a href="https://github.com/keeganmann/django-chatterbot">django-chatterbot</a><p>A fun little chatterbot app for Python-Django.</p></li>
+          <li><a href="https://github.com/keeganmann">more &rarr;</a></li>
         </ul>
       </div>
     </div>
@@ -40,4 +42,5 @@
       </div>
     </div>
     </a>
+  </div>
 {% endblock %}

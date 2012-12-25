@@ -13,9 +13,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', myblog.views.home),
-    (r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
     #(r'^static/(?P<path>.*)', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
-    (r'^', include('articles.urls')),
+    url(r'^blog/', include('articles.urls')),
     # Examples:
     # url(r'^$', 'myblog.views.home', name='home'),
     # url(r'^myblog/', include('myblog.foo.urls')),

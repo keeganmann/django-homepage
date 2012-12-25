@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans 'Articles' %}{% endblock %}
+
+{% block content-container %}
+
+<!--<div class=page style="margin-bottom:20px">
+  <div class=page-inner style="border-radius: 10px;">
+    <div class=page-pad style="padding:10px 30px;">
+      <h2 class="title">{% trans 'Articles' %}{% ifnotequal paginator.num_pages 1 %}, {% trans 'page' %} {{ page_obj.number }}{% endifnotequal %}</h2>
+    </div>
+  </div>
+</div>-->
+
+
+{% for article in page_obj.object_list %}
+{% include 'articles/_articles_summary.html' %}
+{% endfor %}
+
+
+<div class=page style="margin-bottom:0px;">
+  <div class=page-inner style="border-radius: 10px;">
+    <div class=page-pad style="padding:5px 30px;">
+		{% include 'articles/_paginator.html' %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
