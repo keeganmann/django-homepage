@@ -90,7 +90,7 @@ SECRET_KEY = '*w3vq&7p$ft47zoxoq2%hovn!wt7q22j!mm3fy9(n01%w@)w@6'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -101,6 +101,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'pingback.middleware.PingbackMiddleware',
 )
 
 ROOT_URLCONF = 'myblog.urls'
@@ -123,6 +124,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'articles',
+    'pingback',
+    'django_xmlrpc',
 
     'django.contrib.humanize',
     # Uncomment the next line to enable the admin:
@@ -149,12 +152,22 @@ LOGGING = {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
-        }
+        },
+        'console':{
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            #'formatter': 'simple'
+        },
     },
     'loggers': {
         'django.request': {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
+            'propagate': True,
+        },
+        'pingback': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
             'propagate': True,
         },
     }
@@ -180,3 +193,9 @@ DATABASES['default'] =  dj_database_url.config()
 
 ##### BLOG STUFF #####
 ARTICLE_PAGINATION=5
+
+#for pinging:
+DIRECTORY_URLS = (
+    #'http://ping.blogs.yandex.ru/RPC2',
+    #'http://rpc.technorati.com/rpc/ping',
+)

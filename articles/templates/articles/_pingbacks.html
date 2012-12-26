@@ -1,0 +1,17 @@
+{% load pingback_tags %}
+{% get_pingback_list for article as pingbacks %}
+{% if pingbacks %}
+    <h2 class=pingback>{{ pingbacks.count }} Pingbacks</h2>
+    {% for pingback in pingbacks %}
+        <div class="pingback">
+            <p class=pingback>
+                <a name="pingback-{{ pingback.id }}"
+                   href="{{ object.get_absolute_url }}#pingback-{{ pingback.id }}"
+                   class="b-permlink">permalink</a>
+                {{ pingback.date }}, pingback from {{ pingback.url|urlizetrunc:40 }}:
+            </p>
+
+            <p class=pingback-text>{{ pingback.content }}</p>
+        </div>
+    {% endfor %}
+{% endif %}

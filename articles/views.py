@@ -11,6 +11,9 @@ from django.template import RequestContext
 from articles.models import Article, Tag
 from datetime import datetime
 
+from pingback import register_pingback, ping_func
+from django_xmlrpc import xmlrpcdispatcher
+
 ARTICLE_PAGINATION = getattr(settings, 'ARTICLE_PAGINATION', 20)
 
 log = logging.getLogger('articles.views')
@@ -109,6 +112,32 @@ def display_article(request, year, slug, template='articles/article_detail.html'
     response = render_to_response(template, variables)
 
     return response
+
+# create simple function which returns Article object and accepts
+# exactly same arguments as 'display_article' view.
+def pingback_blog_handler(year, slug, **kwargs):
+    return Article.objects.get(publish_date__year=year, slug=slug)
+
+#Now, setup django-pingback
+register_pingback('articles.views.display_article', pingback_blog_handler)
+xmlrpcdispatcher.register_function(ping_func, 'pingback.ping')
+
+from django.db.models import signals
+from pingback.client import ping_external_links, ping_directories
+from articles.models import Article
+
+signals.post_save.connect(
+        ping_external_links(content_attr = 'rendered_content',
+                            url_attr = 'get_absolute_url'),
+        sender=Article, weak=False)
+
+signals.post_save.connect(
+        ping_directories(
+            url_attr = 'get_absolute_url', 
+            feed_url_fun = lambda x: reverse('articles_rss_feed_latest')
+            ),
+        sender=Article, weak=False)
+#finished setting up django-pingback
 
 def redirect_to_article(request, year, month, day, slug):
     # this is a little snippet to handle URLs that are formatted the old way.

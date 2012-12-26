@@ -1,7 +1,14 @@
 TODO
 ==========
 
+High Priority:
+ * Needs pingback
+ * Needs RSS link
+ * Needs Meda information in head
  * Needs forward and back buttons on article page
+ * Integrate google analytics
+
+Lower Priority:
  * Article list doesn't look nice when there aren't any articles.
  * Wordpress import only imports posts and pages and doesn't port over multiple authors--
      the author must be specified explicitly on import

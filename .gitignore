@@ -3,3 +3,4 @@
 *~
 *.db
 venv
+setenv* #I use this to setup my DATABASE_URL environment variable
