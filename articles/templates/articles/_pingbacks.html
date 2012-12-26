@@ -5,9 +5,9 @@
     {% for pingback in pingbacks %}
         <div class="pingback">
             <p class=pingback>
-                <a name="pingback-{{ pingback.id }}"
+                <!--<a name="pingback-{{ pingback.id }}"
                    href="{{ object.get_absolute_url }}#pingback-{{ pingback.id }}"
-                   class="b-permlink">permalink</a>
+                   class="b-permlink">permalink</a>-->
                 {{ pingback.date }}, pingback from {{ pingback.url|urlizetrunc:40 }}:
             </p>
 

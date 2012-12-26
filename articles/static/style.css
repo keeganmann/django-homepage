@@ -300,7 +300,8 @@ div.pingback p.pingback{
 }
 div.pingback p.pingback-text{
 	color:#676767;
-	margin-top:3px;
+	margin-top:10px;
+	margin-left:10px;
 }
 /*** read more button ***/
 .read-more {
