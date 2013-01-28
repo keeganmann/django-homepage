@@ -192,7 +192,7 @@ import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
 
 ##### BLOG STUFF #####
-ARTICLE_PAGINATION=5
+ARTICLE_PAGINATION=7
 
 #for pinging:
 DIRECTORY_URLS = (
