@@ -23,6 +23,7 @@ div.entry, div.page-inner, div.right-inner{
     -moz-box-shadow: 2px 2px 3px #aaa;
     -webkit-box-shadow: 2px 2px 3px #aaa;
     border: 1px solid #ccc;
+    border-radius: 3px;
 }
 
 /*** NAVBAR ***/
@@ -193,11 +194,22 @@ ul.pagination-pages{
 	height:30px;
 }
 ul.pagination-pages li{
-	background:#fff;
+	padding: 0px; margin: 0px;
+	display:block;
+	float:left;
+}
+ul.pagination-pages li a{
 	float:left;
 	display:block;
 	margin: 0px;
-	padding: 5px 10px;
+	padding: 8px 10px;
+	margin-top: -10px;
+	color: #89a;
+	font-size: 14px;
+}
+ul.pagination-pages li a:hover{
+	background:#569;
+	color:#def;
 }
 a.current-page{
 	font-weight: bold;
@@ -223,10 +235,10 @@ div.article h2{
 }
 div.article p{
 	clear: none;
+	line-height: 130%;
 }
 img.alignright{
 	float: right;
-	/*border: 10px solid #eee;*/
 	margin-left: 20px;
 	margin-bottom: 20px;
 }
