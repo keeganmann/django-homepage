@@ -22,6 +22,10 @@ urlpatterns += patterns('',
 )
 
 urlpatterns += patterns('',
+    url(r'^contact/$', views.contact),
+)
+
+urlpatterns += patterns('',
     url(r'^$', views.display_blog_page, name='articles_archive'),
     url(r'^page/(?P<page>\d+)/$', views.display_blog_page, name='articles_archive_page'),
 

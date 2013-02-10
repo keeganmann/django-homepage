@@ -113,6 +113,11 @@ def display_article(request, year, slug, template='articles/article_detail.html'
 
     return response
 
+def contact(request, template='articles/contact.html'):
+    """Displays a contact form."""
+    response = render_to_response(template, {})
+    return response
+
 # create simple function which returns Article object and accepts
 # exactly same arguments as 'display_article' view.
 def pingback_blog_handler(year, slug, **kwargs):
