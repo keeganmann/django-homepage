@@ -7,28 +7,23 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta http-equiv="content-language" content="en-us">
   <link href="/static/style.css?v=3" rel="stylesheet" type="text/css">
+
+  <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
+
   <title>Keegan Mann - {% block title %}Welcome{% endblock %}</title>
   {% block extra-head %}{% endblock %}
 </head>
 <body>
 
 <div class="logo">
-  <a href="/"><h1>keeganmann.com</h1></a>
+  <a href="/"><h1>{{SITE_NAME}}</h1></a>
   <div class=navspacer></div>
-  <a class=nav href="/blog/2009/aboutpage/">ABOUT</a>
-  <a class=nav href="/blog/articles">BLOG</a>
-  <a class=nav href="https://github.com/keeganmann">GITHUB</a>
-  <a class=nav href="http://hkn.eecs.berkeley.edu/~keegan/Keegan-Mann-2-16-13.pdf">RESUME</a>
-  <a class=nav href="/blog/contact/">CONTACT</a>
+  {% for item in NAV_ITEMS %}
+    <a class=nav href="{{item.url}}">{{item.name|upper}}</a>
+  {% endfor %}
 </div>
-<div class="picture">
-  <!--<div class="subtext" id="subtitle" style="text-align:center;">
-    <p>
-      I’m currently a student at UC Berkeley, and I love learning about Electronics, Physics, and Computers.  
-      Click the links below for more.
-    </p>
-  </div>-->
-</div>
+
+<div class="picture"></div>
 
 <div class=outer>
 <div class=contain>
@@ -41,11 +36,12 @@
             {% get_articles 10 as recent %}
             {% for article in recent %}
             {% if forloop.first %}<ul>{% endif %}
-              <li><a href="{{ article.get_absolute_url }}" title="Read this article">{{ article.title }}</a></li>
+              <li><a href="{{ article.get_absolute_url }}" title="Read this article">
+                {{ article.title }}
+              </a></li>
             {% if forloop.last %}</ul>{% endif %}
             {% endfor %}
           {% endblock %}
-
           {% block article_tags %}
             <h2>Tag Cloud</h2>
             {% tag_cloud %}
@@ -84,7 +80,8 @@
               LinkedIn Profile
             </a>
             <p style="margin-left:10px;font-size: 12px;margin-top:0px;">
-              I don't pay attention to this much, but I thought I might as well put it here.
+              I don't pay attention to this much, but I thought I might as well 
+              put it here.
             </p>
           </li>
         </ul>
@@ -113,7 +110,8 @@
   <p>
     Copyright &copy; {% now "Y" %} 
     <a href="http://keeganmann.com">keeganmann.com</a>. All rights reserved.<br/>
-    <span style="font-size:8px"><a href="http://www.codecogs.com/latex/eqneditor.php">Codecogs equation editor</a> used for latex rendering.  </span>
+    <span style="font-size:8px"><a href="http://www.codecogs.com/latex/eqneditor.php">
+      Codecogs equation editor</a> used for latex rendering.  </span>
   </p>
   {% endblock %}
 </div>

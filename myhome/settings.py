@@ -1,4 +1,4 @@
-# Django settings for myblog project.
+# Django settings for project.
 ROOT_DIR = "/Users/keegan/git/django-complete/"
 
 DEBUG = True
@@ -21,7 +21,7 @@ DATABASES = {
     }
 }
 
-# Local time zone for this installation. Choices can be found here:
+# Local time zone for this installation. choicess can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # On Unix systems, a value of None will cause Django to use the same
@@ -68,7 +68,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    ROOT_DIR + 'myblog/static',
+    ROOT_DIR + 'myhome/static',
     ROOT_DIR + 'articles/static',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
@@ -104,10 +104,10 @@ MIDDLEWARE_CLASSES = (
     'pingback.middleware.PingbackMiddleware',
 )
 
-ROOT_URLCONF = 'myblog.urls'
+ROOT_URLCONF = 'myhome.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'myblog.wsgi.application'
+WSGI_APPLICATION = 'myhome.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -124,6 +124,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'articles',
+    'home',
     'pingback',
     'django_xmlrpc',
 
@@ -185,6 +186,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request",
+    "home.context_processors.site",
+    "home.context_processors.navbar",
 )
 
 ##### Heroku Stuff #####

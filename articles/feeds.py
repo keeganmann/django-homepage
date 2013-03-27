@@ -22,7 +22,7 @@ class SiteMixin(object):
 class LatestEntries(Feed, SiteMixin):
 
     def title(self):
-        return "%s Articles" % (self.site.name,)
+        return "%s Latest" % (self.site.name,)
 
     def link(self):
         return reverse('articles_archive')
@@ -32,13 +32,16 @@ class LatestEntries(Feed, SiteMixin):
         articles = cache.get(key)
 
         if articles is None:
-            articles = list(Article.objects.live().order_by('-publish_date')[:15])
+            articles = list(Article.objects.live().order_by('-publish_date')[:100])
             cache.set(key, articles, FEED_TIMEOUT)
 
         return articles
 
     def item_author_name(self, item):
         return item.author.username
+
+    def item_description(self, item):
+        return item.description + "..."
 
     def item_pubdate(self, item):
         return item.publish_date
@@ -81,6 +84,9 @@ class TagFeed(Feed, SiteMixin):
 
     def item_pubdate(self, item):
         return item.publish_date
+
+    def item_description(self, item):
+        return item.description + "..."
 
 class LatestEntriesAtom(LatestEntries):
     feed_type = Atom1Feed

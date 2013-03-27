@@ -5,14 +5,15 @@ from django.conf.urls.defaults import *
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from django.conf.urls import patterns, url, include
-import myblog.views
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', myblog.views.home),
+    url(r'^$', 'home.views.home'),
+    url(r'^contact/', 'home.views.contact'),
+
     url(r'^admin/', include(admin.site.urls)),
     #(r'^static/(?P<path>.*)', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^blog/', include('articles.urls')),

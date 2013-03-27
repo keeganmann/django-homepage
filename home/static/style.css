@@ -5,9 +5,19 @@ body, div, h1, h2{
 	padding: 0px;
 }
 
+@font-face {
+	font-family: Junction;
+	src: url(http://www.ocf.berkeley.edu/~keeganm/Junction-webfont.ttf);
+}
+
+@font-face {
+	font-family: Raleway;
+	src: url(http://www.ocf.berkeley.edu/~keeganm/raleway_thin-webfont.ttf);
+}
+
 body{
 	background-image: url('http://i.imgur.com/FWgaR.png');
-    font: normal 15px Helvetica, arial, sans-serif;
+    font: normal 14px Helvetica, arial, sans-serif;
 }
 
 a{
@@ -36,7 +46,6 @@ div.logo{
 a.nav, div.navspacer, div.logo h1{
 	color: #bbbfa5;
 	font-size: 14px;
-	/*border-right:1px solid #888;*/
 	height: 30px;
 	width: 100px;
 	float: left;
@@ -93,6 +102,7 @@ div.right{
 	color:#444;
 	width:30%;
 	float:right;
+	margin-top:0px;
 }
 div.right-inner{
 	background:#fff;
@@ -102,10 +112,35 @@ div.right-inner{
 }
 div.right ul{
 	list-style-type: none;
-	padding-left: 20px;
+	padding: 0px;
+	margin: 5px 0px;
+	margin-bottom: 20px;
 }
 div.right li{
-	margin-top: 5px;
+	padding: 2px 5px;
+	padding-left:10px;
+}
+div.right li:hover{
+	background: #eee;
+	border-left: 3px solid #445588;
+	padding-left:7px;
+}
+div.right li a{
+	color: #777;
+}
+div.right li a:hover{
+	color: #000;
+}
+div.right h2{
+	font-weight: normal;
+	font-size: 24px;
+	padding-top:0px;
+	margin-top:-10px;
+	color: #333;
+}
+hr{
+	border: none;
+	border-top:1px solid #ccc;
 }
 div.page-container{
 	/*background: #888;/**/
@@ -179,7 +214,7 @@ p.small-subtext a:hover, p.small-subtext-bottom a:hover{
 	color:#aaa;
 	text-decoration: none;
 }
-div.page h2.title, div.page h2.title a, div.right h2{
+div.page h2.title, div.page h2.title a{
 	margin:0;padding:0;
 	font-size: 20px;
 	color: #000;
@@ -296,7 +331,7 @@ h2.pingback{
 	font-size: 16px;
 	color:#444;
 	border-top: 2px solid #eee;
-	padding-top:5px;
+	padding-top:2px;
 }
 div.pingback{
 	font-size: 12px;
@@ -364,6 +399,10 @@ div.pingback p.pingback-text{
 .tag-cloud-5,
 .tag-cloud-6,
 .tag-cloud-7{ color:#888; }
+
+#articles-tag-cloud{
+	padding-top: 7px;
+}
 
 /*** ONLY ON HOME PAGE ***/
 
@@ -439,7 +478,7 @@ div.subtext h1{
 	line-height: 24px;
 	color: #ffffff;
 }
-#blog   { /*background-image: url('http://i.imgur.com/cko5L.jpg'); */
+#blog   {
 	background-image: url('http://keeganmann.files.wordpress.com/2011/01/encoderout.png?w=600');
 }
 .fader{
@@ -449,7 +488,8 @@ div.subtext h1{
 	left:0;right:0;bottom:0;top:0;
 }
 #github {
-	background-image: url('http://i.imgur.com/DkILN.png'); 
+	/*background-image: url('http://i.imgur.com/DkILN.png');*/
+	background-image: url('http://dotfiles.github.com/images/forktocat.jpg');
 	background-size: contain; 
 	background-repeat: 
 	no-repeat; 

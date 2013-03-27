@@ -11,9 +11,5 @@ from django.template import RequestContext
 from articles.models import Article, Tag
 from datetime import datetime
 
-def home(request):
-    variables = RequestContext(request, {})
-    response = render_to_response('index.html', variables)
-    return response
 
 
