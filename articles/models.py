@@ -159,7 +159,31 @@ class ArticleManager(models.Manager):
     def live(self, user=None):
         """Retrieves all live articles"""
 
+        qs = self.active().filter(article_type="p")
+
+        if user is not None and user.is_superuser:
+            # superusers get to see all articles
+            return qs
+        else:
+            # only show live articles to regular users
+            return qs.filter(status__is_live=True)
+
+    def all_live(self, user=None):
+        """Retrieves all live articles"""
+
         qs = self.active()
+
+        if user is not None and user.is_superuser:
+            # superusers get to see all articles
+            return qs
+        else:
+            # only show live articles to regular users
+            return qs.filter(status__is_live=True)
+
+    def notes(self, user=None):
+        """Retrieves all live articles"""
+
+        qs = self.active().filter(article_type="n")
 
         if user is not None and user.is_superuser:
             # superusers get to see all articles
@@ -190,9 +214,11 @@ class Article(models.Model):
     rendered_content = models.TextField()
 
     tags = models.ManyToManyField(Tag, help_text=_('Tags that describe this article'), blank=True)
-    auto_tag = models.BooleanField(default=AUTO_TAG, blank=True, help_text=_('Check this if you want to automatically assign any existing tags to this article based on its content.'))
+    auto_tag = models.BooleanField(default=AUTO_TAG, blank=False, help_text=_('Check this if you want to automatically assign any existing tags to this article based on its content.'))
     followup_for = models.ManyToManyField('self', symmetrical=False, blank=True, help_text=_('Select any other articles that this article follows up on.'), related_name='followups')
     related_articles = models.ManyToManyField('self', blank=True)
+
+    article_type = models.CharField(max_length=2, choices=(('p','Post'),('n','Note'),('pg','Page')), default='Post' )
 
     publish_date = models.DateTimeField(default=datetime.now, help_text=_('The date and time this article shall appear online.'))
     expiration_date = models.DateTimeField(blank=True, null=True, help_text=_('Leave blank if the article does not expire.'))

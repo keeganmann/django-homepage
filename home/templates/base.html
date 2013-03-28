@@ -10,6 +10,9 @@
 
   <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
 
+  <link rel="alternate" type="application/rss+xml" title="Latest Blog Articles RSS Feed" href="{% url articles_rss_feed_latest %}" />
+  <link rel="alternate" type="application/atom+xml" title="Latest Blog Articles Atom Feed" href="{% url articles_atom_feed_latest %}" />
+
   <title>Keegan Mann - {% block title %}Welcome{% endblock %}</title>
   {% block extra-head %}{% endblock %}
 </head>
@@ -19,8 +22,10 @@
   <a href="/"><h1>{{SITE_NAME}}</h1></a>
   <div class=navspacer></div>
   {% for item in NAV_ITEMS %}
-    <a class=nav href="{{item.url}}">{{item.name|upper}}</a>
+    <a class=nav href="{{item.url}}">{{item.display_text|safe}}</a>
   {% endfor %}
+  <a class=nav style="float:right;width:40px;opacity:0.5;" href="/blog/feeds/latest">
+    <img src="http://i.imgur.com/By3BLKO.png" /></a>
 </div>
 
 <div class="picture"></div>
@@ -32,7 +37,7 @@
       <div class=page-pad>
         {% block sidebar %}
           {% block recent_articles %}
-            <h2>Recent Articles</h2>
+            <h2>Recent Posts</h2>
             {% get_articles 10 as recent %}
             {% for article in recent %}
             {% if forloop.first %}<ul>{% endif %}

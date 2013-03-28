@@ -93,11 +93,30 @@ def display_article_summaries(request, page=1):
 
     return response
 
+def display_note_summaries(request, page=1):
+    context = {'request': request}
+    articles = Article.objects.notes(user=request.user)
+    template = 'articles/article_list_summary.html'
+
+    paginator = Paginator(articles, ARTICLE_PAGINATION,
+                          orphans=int(ARTICLE_PAGINATION / 4))
+    try:
+        page = paginator.page(page)
+    except EmptyPage:
+        raise Http404
+
+    context.update({'paginator': paginator,
+                    'page_obj': page})
+    variables = RequestContext(request, context)
+    response = render_to_response(template, variables)
+
+    return response
+
 def display_article(request, year, slug, template='articles/article_detail.html'):
     """Displays a single article."""
 
     try:
-        article = Article.objects.live(user=request.user).get(publish_date__year=year, slug=slug)
+        article = Article.objects.all_live(user=request.user).get(publish_date__year=year, slug=slug)
     except Article.DoesNotExist:
         raise Http404
 
@@ -132,6 +151,7 @@ from django.db.models import signals
 from pingback.client import ping_external_links, ping_directories
 from articles.models import Article
 
+"""
 signals.post_save.connect(
         ping_external_links(content_attr = 'rendered_content',
                             url_attr = 'get_absolute_url'),
@@ -143,6 +163,8 @@ signals.post_save.connect(
             feed_url_fun = lambda x: reverse('articles_rss_feed_latest')
             ),
         sender=Article, weak=False)
+"""
+
 #finished setting up django-pingback
 
 def redirect_to_article(request, year, month, day, slug):

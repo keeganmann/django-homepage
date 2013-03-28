@@ -17,8 +17,10 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('',
-    url(r'^articles/$', views.display_article_summaries),
-    url(r'^articles/page/(?P<page>\d+)/$', views.display_article_summaries),
+    url(r'^posts/$', views.display_article_summaries),
+    url(r'^posts/page/(?P<page>\d+)/$', views.display_article_summaries),
+    url(r'^notes/$', views.display_note_summaries),
+    url(r'^notes/page/(?P<page>\d+)/$', views.display_note_summaries),
 )
 
 urlpatterns += patterns('',
