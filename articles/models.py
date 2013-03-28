@@ -476,9 +476,9 @@ class Article(models.Model):
 
     def generate_teaser(self):
         if self.rendered_content.find("<!--more-->") >= 0:
-            return self.rendered_content[:self.rendered_content.find("<!--more-->")]
+            return self.rendered_content[:self.rendered_content.find("<!--more-->")] + "..."
         else:
-            return truncate_html_words(self.rendered_content, WORD_LIMIT)
+            return truncate_html_words(self.rendered_content, WORD_LIMIT) + "..."
 
     def _get_teaser(self):
         """
