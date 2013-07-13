@@ -13,10 +13,12 @@ class HeaderImageMiddleware(object):
         viewheaders = HeaderImage.objects.filter(view_name=view_func.__name__).order_by('?')
         if len(viewheaders) > 0:
             header = viewheaders[0]
-            print(viewheaders[0].imgurl)
         else:
-            header = HeaderImage.objects.filter(view_name="").order_by('?')[0]
-            print(header.imgurl)
+        	try:
+            	header = HeaderImage.objects.filter(view_name="").order_by('?')[0]
+            except IndexError as e:
+            	request.HEADER_IMAGE_URL = ""
+            	return
         request.HEADER_IMAGE_URL = header.imgurl
 
 def headerimage(request):
