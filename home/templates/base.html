@@ -55,19 +55,15 @@
       </div>
     </div>
 
+    {% for item in SIDEBAR_ITEMS %}
     <div class=right-inner>
       <div class=page-pad>
-        <p><em>
-          Hi There!<br/>
-          My name is Keegan Mann, and I love working with and learning about 
-          Electronics, Physics, and Computers.  I’m currently a second year 
-          EECS(Electrical Engineering and Computer Science) major at 
-          UC Berkeley.  I post on my blog about various projects and 
-          activities I’ve been involved in, but lately I haven’t had much 
-          time.<br/>
-        </em></p>
+        <h2>{{item.title}}</h2>
+        {{item.content|safe}}
       </div>
     </div>
+    {% endfor %}
+
     <div class=right-inner>
       <div class=page-pad>
         <h2>More Links:</h2>

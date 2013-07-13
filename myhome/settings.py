@@ -192,6 +192,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "home.context_processors.site",
     "home.context_processors.navbar",
     "home.context_processors.headerimage",
+    "home.context_processors.sidebaritems",
 )
 
 ##### Heroku Stuff #####

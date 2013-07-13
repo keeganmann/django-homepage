@@ -26,3 +26,7 @@ class HeaderImage(models.Model):
 	view_name = models.CharField(max_length=128, null=True, blank=True)
 	date_start = models.DateTimeField(default=None, null=True, blank=True)
 	date_end = models.DateTimeField(default=None, null=True, blank=True)
+
+class SidebarItem(models.Model):
+	title = models.CharField(max_length=32)
+	content = models.TextField()

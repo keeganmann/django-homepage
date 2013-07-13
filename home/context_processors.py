@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.contrib.sites.models import get_current_site
-from models import NavItem, HeaderImage
+from models import NavItem, HeaderImage, SidebarItem
 
 def site(request):
     return {'SITE_NAME': get_current_site(request).name}
@@ -23,3 +23,6 @@ class HeaderImageMiddleware(object):
 
 def headerimage(request):
     return {'HEADER_IMAGE_URL': request.HEADER_IMAGE_URL}
+
+def sidebaritems(request):
+    return {'SIDEBAR_ITEMS': SidebarItem.objects.all()}
