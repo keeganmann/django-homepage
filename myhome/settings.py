@@ -10,6 +10,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+# The databases variable is not used
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
@@ -102,6 +103,7 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'pingback.middleware.PingbackMiddleware',
+    'home.context_processors.HeaderImageMiddleware',
 )
 
 ROOT_URLCONF = 'myhome.urls'
@@ -189,6 +191,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
     "home.context_processors.site",
     "home.context_processors.navbar",
+    "home.context_processors.headerimage",
 )
 
 ##### Heroku Stuff #####
@@ -203,3 +206,6 @@ DIRECTORY_URLS = (
     #'http://ping.blogs.yandex.ru/RPC2',
     #'http://rpc.technorati.com/rpc/ping',
 )
+
+#### DEPLOY-SPECIFIC ####
+FOXYFORM_URL="http://www.foxyform.com/form.php?id=380068&sec_hash=fb201d83a6f"

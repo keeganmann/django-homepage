@@ -1,46 +1,17 @@
 {% extends 'articles/base.html' %}
 {% block content-container %}
   <div class=page>
-    <a href="/blog/posts">
-    <div class="entry" id="blog">
-      <div class=fader></div>
+
+
+{% for feature in features %}
+    <a href="{{feature.url}}">
+    <div class="entry" style="background-image:url('{{feature.imgurl}}');">
       <div class=subtext>
-        <h1>Blog</h1>
-        <p>A blog with some of my past projects and interests.</p>
+        <h1>{{feature.title}}</h1>
+        <p>{{feature.description}}</p>
       </div>
     </div>
     </a>
-    <a href="https://github.com/keeganmann">
-    <div class="entry" id="github" style="background-color:#fff;">
-      <p style="padding:5px;margin:0px;margin-left:30%;color:#888;font-size:12px;font-weight:bold;height:100%;width:100px;opacity:0.5;">
-        Note: some of my projects are still in subversion repositories, but I hope to get them up here soon.
-      </p>
-      <div class=subtext>
-        <h1><a href="https://github.com/keeganmann">GitHub Page</a></h1>
-        <ul>
-          <li><a href="https://github.com/keeganmann/django-homepage">django-homepage</a><p>Repository for this website.</p></li>
-          <li><a href="https://github.com/keeganmann/PlatformPanda">PlatformPanda</a><p>An iOS platformer game</p></li>
-          <li><a href="https://github.com/keeganmann/django-chatterbot">django-chatterbot</a><p>A fun little chatterbot app for Python-Django.</p></li>
-          <li><a href="https://github.com/keeganmann">more &rarr;</a></li>
-        </ul>
-      </div>
-    </div>
-    </a>
-    <a href="http://maharbizgroup.wordpress.com/">
-    <div class="entry" id="mahar" style="background-color:#fff;">
-      <div class=subtext>
-        <h1>Maharbiz Research Group</h1>
-        <p>Research group at UC Berkeley of which I'm a member.</p>
-      </div>
-    </div>
-    </a>
-    <a href="http://hkn.eecs.berkeley.edu/~keegan/Keegan-Mann-2-16-13.pdf">
-    <div class="entry" id="resume" style="background-color:#fff;">
-      <div class=subtext>
-        <h1>My Resume</h1>
-        <p>(PDF)</p>
-      </div>
-    </div>
-    </a>
-  </div>
+{% endfor %}
+
 {% endblock %}

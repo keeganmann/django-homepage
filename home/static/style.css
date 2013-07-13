@@ -478,22 +478,12 @@ div.subtext h1{
 	line-height: 24px;
 	color: #ffffff;
 }
-#blog   {
-	background-image: url('http://keeganmann.files.wordpress.com/2011/01/encoderout.png?w=600');
-}
 .fader{
-	background: #ffe;
+	background: #fff;
 	opacity: 0.3;
 	position: absolute;
 	left:0;right:0;bottom:0;top:0;
 }
-#github {
-	/*background-image: url('http://i.imgur.com/DkILN.png');*/
-	background-image: url('http://dotfiles.github.com/images/forktocat.jpg');
-	background-size: contain; 
-	background-repeat: 
-	no-repeat; 
-	background-position: right center;
+.fader:hover{
+	opacity: 0.0;
 }
-#mahar  { background-image: url('http://imgur.com/oiidbX6.png'); }/*'http://i.imgur.com/v597x.jpg'*/
-#resume { background-image: url('http://i.imgur.com/nWdW7.png'); }
